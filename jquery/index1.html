@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Emreyamanyazilim</title>
+
+
+    <script src="../jquery.min.js"></script>
+
+
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 3px;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+
+    <div>
+        <p id="p1" class="c1"> Deneme Paragraf 1 ID : p1 Class : c1 </p>
+        <p id="p2" class="c1">Paragraf 2 ID : p2 Class : c1 </p>
+        <p id="p3" class="c3">Paragraf 3 ID : p3 Class : c3 </p>
+        <p id="p4" class="c4">Paragraf 4 ID : p4 Class : c4 </p>
+    </div>
+
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>Ad/Soyad</th>
+                <th>Yaş</th>
+                <th>Meslek</th>
+            </tr>
+            <tr>
+                <td>Doruk Akgül</td>
+                <td>24</td>
+                <td>Endüstri Mühendisi</td>
+            </tr>
+            <tr>
+                <td>Kılıç Kalender</td>
+                <td>26</td>
+                <td>Kaptan</td>
+            </tr>
+            <tr>
+                <td>İrem Şişman</td>
+                <td>22</td>
+                <td>Çevirmen</td>
+            </tr>
+            <tr>
+                <td>Barış Akgül</td>
+                <td>25</td>
+                <td>Mühendis</td>
+            </tr>
+        </thead>
+
+    </table>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+        <li>JQuery</li>
+    </ul>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+        <li>JQuery</li>
+    </ul>
+
+    <a href="ders_52.html" target="_blank">Ders 52</a>
+    <br /><br />
+    Checkbox<input id="Checkbox1" type="checkbox" checked />
+    <button id="btn">Tıkla</button>
+    <button id="btn">Tıkla2</button>
+
+
+    <script>
+        $(function () {
+            // tüm p'leri değiştirme
+            $("#btn").click(function () {
+                $("p").css("color", "green");
+            });
+
+            // c1 clası olanları değiştirme
+            $("#btn").click(function () {
+                $(".c1").css("color", "red");
+            });
+
+            // buttona clik yaptığımız için this ile button rengi değişir
+            $("#btn").click(function () {
+                $(this).css("color", "green");
+            });
+
+            //  body içindeki tüm elementleri seçerek renk verir
+            $("#btn").click(function () {
+                $("*").css("color", "blue");
+            });
+
+            //idsi p2 olan c1 classlı olana css verme
+            $("#btn").click(function () {
+                $("#p2.c1").css("color", "yellow");
+            });
+
+            // ul nin lisinin ilkinin cssi
+            $("#btn").click(function () {
+                $("ul li:first").css("color", "red");
+            });
+
+            // attirebutesini yakalayarak css verme
+            $("#btn").click(function (e) {
+                $("[id]").css("color", "blue");
+                $("[href]").css("color", "green");
+
+            //a nın targeti blank olanı seçerek css verme
+                $("a[target = '_blank']").css("color", "red");
+            });
+
+            // tüm buttonları 
+            $("#btn").click(function (e) {
+                $(":button").css("color", "red");
+            });
+
+            // p ler içinde text olarak yazıda ID yazanları css
+            $("#btn").click(function (e) {
+                $("p:contains(ID)").css("color", "red");
+            });
+
+            // pler içinde içermeyeni   p1 idsi olmayan tüm p leri css le
+            $("#btn").click(function (e) {
+                $("p:not(#p1)").css("color", "red");
+            });
+
+            // p iiçinde text  belirli bir yazıyı içermeyeni 
+            $("#btn").click(function (e) {
+                $("p:not(':contains(Deneme)')").css("color", "red");
+            });
+
+            //  has ile  div içindeki p lerin hepsini cssle
+            $("#btn").click(function (e) {
+                $("div:has(p)").css("color", "red");
+            });
+
+            // birden fazla  seçim yaparak ortak css verme
+            $("#btn").click(function (e) {
+                $(".c1, #p4, ul li:first-child").css("color", "red");
+            });
+
+            // tüm tabloya css
+            $("#btn").click(function (e) {
+                $("tr").css("color", "red");
+            });
+
+            // tablo üstünün rengi css
+            $("#btn").click(function (e) {
+                $("th").css("color", "red");
+            });
+
+            // çift hanede olnların css  çift için even tek için odd
+            $("#btn").click(function (e) {
+                $("tr:even").css("color", "red");
+            });
+
+        });
+    </script>
+</body>
+
+</html>
