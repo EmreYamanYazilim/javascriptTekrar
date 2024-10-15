@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Remove</title>
+</head>
+<body>
+    <div id="div1" class="deneme">
+        <p id="p1">Paragraf 1</p>
+        <p id="p2">Paragraf 2</p>
+        <p id="p3">Paragraf 3</p>
+        <p id="p4">Paragraf 4</p>
+    </div>
+    <div></div>
+    <br /><br />    
+    <input type="text" id="t1" value="input yazısı">
+    <br /><br />
+    <a href="a1_hrefidir" id="a1">deneme1</a>
+    <div></div>
+    <br /><br />
+    <button onclick="yazdir()" id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+        $("#btn").click(function (e) { 
+            //  div içinde sonuna yazıyı ekler 
+            $("#div1").append("Jquery Tekrar ediyorum  sonuna yazılır");
+            // div içinde  en başına yazar
+            $("#div1").prepend("jquery Tekrar ediyorum başına yazılır ");
+            // div dışında sonra yazar 
+            $("#div1").after("div dışında sona yazılır");
+            //div dışında div öncesine yazar
+            $("#div1").before("div dışına başa yazılır");
+            // divi komple silme işlemi 
+            $("#div1").remove();
+            // div tagllar içinde  classı deneme olan divi siler
+            $("div").remove(".deneme");
+            // divin içini boşaltarak  siler ama div kalır 
+            $("#div1").empty();
+
+
+
+        });
+
+        // buttona onclick yazdir() vererek burdaki parametreleri jqappend ile yazdırabiliriz
+        function yazdir () {
+                var tt = "<p>Paragraf yazıldı</p>";
+                var tt2 = $("<p></p>").text("z2");
+                var tt3 = document.createElement("p").innerHTML = "z3";
+
+                $("#div1").append(tt,tt2,tt3);
+            }
+
+    </script>
+</body>
+</html>
