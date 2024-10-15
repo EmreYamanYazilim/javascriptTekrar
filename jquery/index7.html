@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add remove 2</title>
+</head>
+<style>
+    #div1{
+        padding: 5px;
+        border: 2px solid black;
+    }
+    .deneme {
+    color: red;
+    }
+</style>
+<body>
+    <div id="div1">
+        <p id="p1">Paragraf 1</p>
+        <p id="p2">Paragraf 2</p>
+        <p id="p3">Paragraf 3</p>
+        <p id="p4">Paragraf 4</p>
+    </div>
+    <div></div>
+    <br /><br />    
+
+
+    <button  id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+
+        $(function () {
+            $("#btn").click(function (e) { 
+                // appendde önce yazılıcak yeri sonra ne yazacağımızı yazıyorduk  to yaptığımızda yerle değişiyor 
+                $("<p> jQuery Tekrar ediyorum</p>").appendTo("#div1");
+
+                // div dışına  div sonrasına  yazılıyor normalde after yazıp önce hedef id ve sonra ne yazacağımızı yazardık böyle yazınca yerler değişmiş oluyor
+                // NOT append yada appendTo farketmez ekleme yaparken içine  alttaki gibi class vb tüm attrebuteleri ekleyebiliriz
+                $("<p class='deneme'>jqqq</p>").insertAfter("#div1");
+
+                // tüm p taglarını değiştirir
+                $("<p class='deneme'>Değiştirme</p>").replaceAll("p");
+
+                // replaceall tersi gibi çalışan with
+                $("p").replaceWith("<p class='deneme'> replace tersi with önce tag sonra değişicek parametre girilcek</p>");
+
+                 // p1 id li olanı  div1 içine sona kopyalar
+                $("#p1").clone().appendTo("#div1");
+            });
+        });
+
+    </script>
+</body>
+</html>
