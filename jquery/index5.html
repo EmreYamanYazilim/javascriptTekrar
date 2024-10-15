@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmreYamanYazılım || JQuery Get&Set Özellikleri</title>
+</head>
+<body>  
+    <style>
+        #div1{
+            border:2px solid black;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="deneme">
+        <p id="p1">Paragraf 1</p>
+        <p id="p2">Paragraf 2</p>
+        <p id="p3">Paragraf 3</p>
+        <p id="p4">Paragraf 4</p>
+    </div>
+    <br /><br />    
+    <input type="text" id="t1" value="input yazısı">
+    <br /><br />
+    <a href="a1_hrefidir" id="a1">deneme1</a>
+    <div></div>
+    <br /><br />
+    <button id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () { 
+                // yazıyı  çekme innerHTML gibi
+                alert($("#p1").text())
+
+                // inputlar içindeki değerleri almak için val
+                alert($("#t1").val())
+
+
+                 // attrebute ulaşma
+                alert($("#a1").attr("href"))
+
+                // elementler içindekini değiştirme
+                $("#p1").text("jQuery tekrar ediyorum");
+                $("#p2").html("<b> Jquery tekrar ediyorum </b>");
+                $("#t1").val("jqery tekrar ediyorum");
+                $("#a1").attr("href", "attre set etme");
+                $("#a1").attr({
+                    href: "attr cogul değiştirme",
+                    target: "_blank"                    
+                });
+            });
+
+
+
+        });
+
+
+    </script>
+</body>
+</html>
