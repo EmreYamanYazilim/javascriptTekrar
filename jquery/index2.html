@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>EmreYamanYazilim || Mouse klavye olayları jQuery tekrar </title>
+    <style>
+        #div1{
+            width:100%;
+            height:400px;
+            background-color:yellow;
+        }
+        #div2{
+            width:30%;
+            height:200px;
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">            
+        </div>
+    </div>
+    <br />
+    <input id="txt" type="text" />
+    <br /><br />
+    <button id="btn">Tıkla</button>
+    <script src="../jquery.min.js"></script>
+    <script>       
+
+        $(function () {
+
+            // div1 ccsleme
+            $("#btn").click(function () { 
+                $("#div1").css("background-color", "red");
+                
+            });
+            
+            //mause üzerine geldiğinde
+            $("#div1").mouseenter(function () { 
+                $("#div1").css("background-color", "red");
+            });
+
+            //mouse üzerinden çıktıktan sonra
+            $("#div1").mouseleave(function () { 
+                $("#div1").css("background-color", "green");
+            });
+
+            // Mouse üzerindeyken kırmızı renk olacak  
+            $("#div1").mouseover(function () { 
+                $("#div1").css("background-color", "red");
+            });
+            
+            // mouse üzerinden gidince css
+            $("#div1").mouseout(function () { 
+                $("#div1").css("background-color", "red");
+            });
+
+
+            // mouse üzerine gelidğinde css çıktığında eski hali
+            $("#div1").hover(function () { 
+                $("#div1").css("background-color", "red");
+            });
+
+            // tıkladığımızda mousedown css kaldırdığımızda mouseup css   
+
+            $("#div1").mouseup(function () { 
+                $("#div1").css("background-color", "red");
+            });
+
+            $("#div1").mousedown(function () { 
+                $("#div1").css("background-color", "blue");
+            });
+
+
+            // inputa birşey yazdığımda harfe bastıktan sonra css keypress
+            $("#txt").keyup(function (e) { 
+                $("#div1").css("background-color", "red");
+            });
+
+            //inputta birşey yazılınca harfe basar basmaz
+            $("#txt").keydown(function (e) { 
+                $("#div1").css("background-color", "red");
+            });
+
+
+
+
+
+        });
+
+
+    </script>
+</body>
+</html>
