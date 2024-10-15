@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>EmreYamanYazılım || Form&Window Event || JQuery </title>
+
+    <script src="../jquery.min.js"></script>
+    <style>
+        #div1 {
+            width: 100%;
+            height: 200px;
+            background-color: yellow;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <p>Javascript</p>
+        <p>Javascript</p>
+        <p>Javascript</p>
+        <p>Javascript</p>
+        <p>Javascript</p>
+        <p>Javascript</p>
+        <p>Javascript</p>
+        <p>Javascript</p>
+    </div>
+    <p id="p1"></p>
+    <br />
+    <form action="" id="frm" style="margin-left:50px">
+        <input id="Text1" type="text" placeholder="Kullanıcı Adı" value="Javascript" /><br />
+        <input id="Password1" type="password" placeholder="Parola" /><br />
+        Kadın<input id="Radio1" type="radio" name="cinsiyet" /><br />
+        Erkek<input id="Radio1" type="radio" name="cinsiyet" /><br /><br />
+        <input id="btn" type="submit" value="Submit" />
+    </form>
+    <button id="btn2">Tıkla</button>
+
+    <script>
+        $(document).ready(function () {
+            //form submit etmek için 
+            $("#frm").submit(function (e) { 
+                $("#div1").css("background-color", "red");         
+            });
+
+            // inputa birşeyler yazıp başka bir yere kıladığımda css çalışır
+            $("#Text1").change(function (e) { 
+                $("#div1").css("background-color", "red");  
+            });
+
+            //focus inputa tıkladığımızda css olur blur inputa tıkladıktan sonra başka bir yere tıkladıktan sonra css olur
+            $("#Text1").focus(function (e) { 
+                $("#div1").css("background-color", "red");
+            });
+            $("#Text1").blur(function (e) { 
+                $("#div1").css("background-color", "black");
+            });
+
+            //focusin&focusout inputa tıkladığımda ve inputtan başka yere tıkladığımda 
+            $("#Text1").focusin(function (e) { 
+                $("#div1").css("background-color", "red");
+            });
+            $("#Text1").focusout(function (e) { 
+                $("#div1").css("background-color", "blue");
+            });
+
+
+            //select  input içindeki yazıyı seçtiğimde css
+            $("#Text1").select(function () { 
+                $("#div1").css("background-color", "red");
+            });
+
+            // trigger ile işlemleri otomatik yaptırabiliriz misal select işlemini maouse ile seçmeden buttona tıklatarak input içindeki yazıyı mouse ile seçmiş gibbi gösterebiliriz bunu hepsinde yapabilirz select,focus,blur vb
+            $("#btn2").click(function (e) { 
+                $("#Text1").trigger("select");
+            });
+            $("#Text1").select(function () {
+                $("#div1").css("background-color", "red");
+            });
+
+
+
+            // WİNDOW BÖLÜMÜ
+            var genislik = $(window).width();
+            var yukseklik = $(window).height();
+
+            $("#p1").text("Genislik " + genislik + " yukseklik " + yukseklik);
+
+            // scrool her hareket ettiğinde  p1 içinde değer artışı olacak 
+            var x = 1;
+            $("#div1").scroll(function () { 
+                $("#p1").text(x +=1);
+            });
+
+
+            // sayfada bulunan genişliği göstermek için
+            $(window).resize(function () {
+                var genislik = $(window).width();
+                var yukseklik = $(window).height();
+                $("#p1").text("Genislik " + genislik + " yukseklik " + yukseklik);
+            });
+
+        });
+    </script>
+</body>
+
+</html>
