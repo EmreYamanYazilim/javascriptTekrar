@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addClass & CSS</title>
+    <style>
+        #div1 {
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        .kirmizi {
+            background-color: red;
+        }
+
+        .mavi {
+            background-color: blue;
+        }
+
+        .beyazYazi {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1" class="deneme">
+        <p id="p1" class="kirmizi">Paragraf 1</p>
+        <p id="p2">Paragraf 2</p>
+        <p id="p3">Paragraf 3</p>
+        <p id="p4">Paragraf 4</p>
+    </div>
+    <div></div>
+    <br /><br />
+
+
+    <button id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            $("#btn").click(function () {
+                // 2 tane css tagı ekleyerek style içindeki değerleri verme
+                $("#p2").addClass("mavi beyazYazi");      
+                
+                // class kaldırma 
+                $("#p1").removeClass("kirmizi");
+
+                // class ekleme kaldırma
+                $("#p2").toggleClass("mavi");
+
+                // attrebute silme
+                $("#p2").removeAttr("id");
+
+                // Css işlemi
+                $("#p3").css("font-size", "50px");
+
+                $("#p3").css({
+                    "font-size": "50px",
+                    "color": "yellow",
+                    "background-color": "blue"
+                });
+
+
+
+
+
+
+
+            });
+
+
+
+
+        });
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
