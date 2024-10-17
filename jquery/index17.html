@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Emre Yaman Yazılım || Animate </title>
+    <style>          
+        .deneme{
+            width:200px;
+            height:200px;
+            margin-bottom:15px;
+            font-size:32px;
+            position:relative;
+        }
+   </style>
+</head>
+<body>
+   <button id="btn">Animate</button>
+    <br /><br /><br />
+  <div id="div1" class="deneme" style="background-color:gray">Javascript</div>
+
+   <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function (e) { 
+               $("#div1").animate({
+                left : "+=200px", // += yaparak buttona 2. tıklayışa sadece bu  aktif olur 
+                top : "200px",
+                width : "733px",
+                height : "180px",
+                opacity: "0.5",
+                fontSize : "150px" 
+                // width : "toggle"   yaparak width özelliğimize toggle verebiliriz      
+               },2000); 
+            });
+
+            // queue metodu ile bir işlemi bir kuyruğa koyup sonrasında tekrar çalıştırır. dequeue yaparakta  başka işlemler varsa sonrada o işlemler devam eder 
+            $("#btn").click(function (e) { 
+                $("#div1").queue(function  () {
+                    $(this).css("background-color", "red");
+                    // dequeue özelliğinide içine yazarak diğer animasyonların devam etmesini sağlarız
+                    $(this).dequeue(); 
+                })
+            });
+        });
+
+    </script>
+
+
+</body>
+</html>
