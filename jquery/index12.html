@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmreYamanYazılım || Sblings Next Prev(Kardeşler)</title>
+    <style>
+        .deneme {
+            display: block;
+            border: 2px solid lightgrey;
+            color: gray;
+            padding: 5px;
+            margin: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1" class="deneme">
+        div (5.Ebeveyn) ID: #div1
+        <div id="div2" class="deneme">
+            div (4.Ebeveyn) ID: #div2
+            <ul class="deneme">
+                ul (3.Ebeveyn )
+                <li class="deneme">
+                    li (2.Ebeveyn)
+                    <p class="deneme">
+                        p(1.Ebeveyn)
+                        <span class="deneme">span</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="div3" class="deneme">
+            div ID: #div3
+            <div id="div4" class="deneme">
+                div ID: #div4
+            </div>
+        </div>
+
+        <h1 class="deneme">
+            h1
+        </h1>
+
+    </div>
+
+    <br />
+    <button id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function (e) { 
+
+                 // d2 nin kardeşlerine css verdik sadece bir kardeşe css vermek için sblings içinde onu belirtiyoruz
+                $("#div2").siblings().css({
+                    "border": "2px solid red",
+                    "color" : "red"                    
+                });
+
+                $("#div2").siblings("h1").css({
+                    "border": "2px solid red",
+                    "color" : "red"                    
+                });
+
+                // div2 den sonraki ilk kardeşi seçmek için next kullanabiliriz nextAll yaparsak kendisinden sonraki tüm kardeşleri seçer  yine içinde belirtirsek tüm kardeşler içinden bir tek onu sçeer 
+                $("#div2").next().css({
+                    "border": "2px solid red",
+                    "color" : "red"                   
+                });
+
+                $("#div2").nextAll().css({
+                    "border": "2px solid red",
+                    "color" : "red"                   
+                });
+
+                $("#div2").nextAll("h1").css({
+                    "border": "2px solid red",
+                    "color" : "red"                   
+                });
+
+                // nextUntil  x ten başlayıp y ye adar olanı seçip işlem yaptırı div2 den başlayarak h1 e kadar olanları seçer
+
+                $("#div2").nextUntil("h1").css({
+                    "border": "2px solid red",
+                    "color": "red"
+                });
+
+
+                // prev ve prevAll ile aynı işlemleri yaptırabiliriz kendisinden öncekileri seçer
+                $("#div2").prev().css({
+                    "border": "2px solid red",
+                    "color" : "red"                   
+                });
+
+                $("#div2").prevAll().css({
+                    "border": "2px solid red",
+                    "color" : "red"                   
+                });
+
+
+
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
