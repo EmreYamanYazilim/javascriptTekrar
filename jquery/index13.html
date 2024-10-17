@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmreYamanYazılım || Filtering Flitreleme</title>
+    <style>
+        .deneme {
+            display: block;
+            height: 100px;
+            border: 2px solid lightgrey;
+            color: gray;
+            padding: 5px;
+            margin: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1" class="deneme c1">
+        #div1 <br /> <br />
+        .c1
+
+    </div>
+    <div id="div4" class="deneme c1">
+        #div4 <br /> <br />
+        .c1
+
+    </div>
+    <div id="div2" class="deneme c2">
+        #div2 <br /><br />
+        .c2
+    </div>
+    <div id="div3" class="deneme c3">
+        #div3 <br /><br />
+        .c3
+    </div>
+
+
+    <br />
+    <button id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+
+                // firs misal divlerden ilkini seçmek için kullanılır 
+                $("div").first().css({
+                    "border": "2px solid red",
+                    "color": "red"                    
+                });
+                // last  sonuncu divi seçme
+                $("div").last().css({
+                    "border": "2px solid red",
+                    "color": "red"                    
+                });
+
+                // eq(2) index numarası ile seçim yapmaya yarar  2. indexteki divi seçer               
+                $("div").eq(2).css({
+                    "border": "2px solid red",
+                    "color": "red"                        
+                });
+
+                //  filter  filitreleyerek seçtiklerimize css verir
+
+                $("div").filter(".c2").css({
+                    "border": "2px solid red",
+                    "color": "red"                    
+                });
+
+                // // not filterin  tam tersidir  seçtiklerimizin dışındakileri bize css le dedik  
+                $("div").not(".c2").css({
+                    "border": "2px solid red",
+                    "color": "red"                    
+                });
+
+
+            });
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
