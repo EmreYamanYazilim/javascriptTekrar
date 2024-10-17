@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emre YmnYazılım || jQuery Ancestor Üst ebeveyne ulaşma</title>    
+    <style>
+        .deneme { 
+        display: block;
+        border: 2px solid lightgrey;
+        color: gray;
+        padding: 5px;
+        margin: 15px;
+        font-weight:bold;
+      }    
+  </style>
+</head>
+<body>
+    <div id="div1" class="deneme">
+        div (5.Ebeveyn) ID: #div1
+        <div id="div2" class="deneme">
+            div (4.Ebeveyn) ID: #div2
+            <ul class="deneme">
+                ul (3.Ebeveyn )
+                <li class="deneme">
+                    li (2.Ebeveyn)
+                    <p class="deneme">
+                        p(1.Ebeveyn)
+                        <span class="deneme">span</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="div3" class="deneme">
+            div  ID: #div3
+            <div id="div4" class="deneme">
+                div  ID: #div4
+            </div>
+        </div>
+        <h1 class="deneme">
+            h1
+        </h1>
+    </div>
+    <br />
+    <button id="btn">Tıkla</button>
+
+
+    <script src="../jquery.min.js"></script>
+    <script>
+
+        $(function () {
+            $("#btn").click(function () { 
+                 // parent ile spanın içindeki ilk üst elementimize ulaşarak  seçim yaparak css verdik
+                $("span").parent().css({
+                    "border": "2px solid red",
+                    "color": "red"
+                });
+
+                // parent değilde parents yazsaydık span hariç tüm üst elementleri seçerek css verecekti
+                $("span").parents().css({
+                    "border": "2px solid red",
+                    "color": "red"                   
+                });
+
+                 // eğer parents yasak bile içinde üst ebeveynlerden birsini misal ul versek  spanın üstündeki tüm ebebeynler yerine sadece ul'yi seçer istersek id olarka belirtebiliriz
+                $("span").parents("ul").css({
+                    "border": "2px solid red",
+                    "color": "red" 
+                });
+                
+                // parents("#div2") yazarsak  div2 hariç onun alt çocuklarını  ve span hariç hepsine css verir
+
+                $("span").parentsUntil("#div2").css({
+                    "border": "2p solid red",
+                    "color" : "red"
+                });
+            });
+        });
+    </script> 
+</body>
+</html>
