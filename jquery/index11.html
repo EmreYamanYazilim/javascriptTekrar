@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmreYMNYazılım || JQuery Descendants (Çocuklara ulaşma) </title>
+    <style>
+        .deneme {
+            display: block;
+            border: 2px solid lightgrey;
+            color: gray;
+            padding: 5px;
+            margin: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1" class="deneme">
+        div (5.Ebeveyn) ID: #div1
+        <div id="div2" class="deneme">
+            div (4.Ebeveyn) ID: #div2
+            <ul class="deneme">
+                ul (3.Ebeveyn )
+                <li class="deneme">
+                    li (2.Ebeveyn)
+                    <p class="deneme">
+                        p(1.Ebeveyn)
+                        <span class="deneme">span</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="div3" class="deneme">
+            div ID: #div3
+            <div id="div4" class="deneme">
+                div ID: #div4
+            </div>
+        </div>
+
+        <h1 class="deneme">
+            h1
+        </h1>
+
+    </div>
+
+    <br />
+    <button id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+
+
+$(function () {
+    $("#btn").click(function () { 
+        
+        // toruna  childiren ile  css veremeyiz sadece cocuklara veririz find ile torunlarada verebiliriz
+
+
+        // dış divin çocukları olan  ilk çocuklarına css verme 
+        $("#div1").children().css({
+            "border": "2px solid red",
+            "color" : "red"           
+        });
+
+        //  div 1 seçince hemen ilk alt seçer ve cocuklardan istediklerimizi seçmek için  belirtiyoruz
+        $("#div1").children("h1").css({
+            "border": "2px solid red",
+            "color" : "red"            
+        });
+
+        // bütün alt çocuklarına vermek için  find  özelliğini kullanacğız hepsi için *  belirtmek içinde yazarak göstermemiz gerek
+        // bütün var olan divlere css vermek için 
+        $("#div1").find("div").css({
+            "border": "2px solid red",
+            "color" : "red"
+        });
+
+
+
+
+
+
+    });
+});
+
+
+
+
+    </script>
+
+</body>
+
+</html>
