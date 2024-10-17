@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmreYamanYazılım || jQuery Dimensions</title>
+    <style>
+        #div1 {
+            border: 5px solid black;
+            width: 400px;
+            height: 400px;
+            padding: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+    </div>
+    <div id="div2">
+    </div>
+    <button id="btn">Tıkla</button>
+
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            $("#btn").click(function () {
+                // div1'nin genişliğini ve yüksekliğini alıp div2'ye yazdırıyoruz.
+                var a = $("#div1").width();
+                var b = $("#div1").height();
+                $("#div2").html("Genişlik : " + a + "<br/> Yükseklik " + b);
+
+                // div1'nin padding ve margin değerlerini alıp div2'ye yazdırıyoruz.
+                var a  = $("#div1").innerWidth();
+                var b = $("#div1").innerHeight();
+                $("#div2").html("Genişlik : " + a + " Yükseklik : " + b);
+
+                // div1'nin  pading ve margin değerlerine ek olarakborder değerlerini alıp div2'ye yazdırıyoruz.
+                var a =  $("#div1").outerWidth();
+                var b = $("#div1").outerHeight();
+                $("#div2").html("Genişlik : " + a + " Yükseklik : " + b);
+
+                // div1'e istediğimiz geniişlikleri veriyoruz
+                $("#div1").width(600);
+                $("#div1").height(800);
+
+            });
+
+
+
+
+
+
+        });
+
+
+
+
+    </script>
+</body>
+</html>
