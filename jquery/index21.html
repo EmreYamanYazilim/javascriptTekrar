@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emre Yaman Yazılım || jQuery Draggable</title>
+
+    <style>
+        .deneme {
+            width: 50%;
+            height: 400px;
+            background-color: yellow;
+            padding: 10px;
+        }
+
+        #div2 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            color: white;
+            text-align: center;
+        }
+
+        #p1 {
+            position: relative;
+            top: 80px;
+            height: 20px;
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1" class="deneme">
+        <div id="div2"> DRAG
+            <p id="p1"></p>
+        </div>
+
+    </div>
+
+    <script src="../jquery.js"></script>
+    <!-- <script src="../jquery-ui.js"></script> -->
+    <script src="../jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            
+            $("#div2").draggable({
+               // axis : "x", // axis(eksen) y ile sadece  aşağı yukarı x ilede sadece sağa ve sola haraket özelliği
+                axis : "both", // yer yöne 
+                containment : "parent", // containment(sınırlama) div2  div 1 içinden dışarıya çıkmasın istiyorsak  div1  parent yada  #div1 yazarak dışarı çıkmasını engelleriz  
+                start : function  () { // işlem başladığı zamanda altında yazı yazdırma 
+                    $("#p1").html("Start");
+                },
+                stop: function  () { // durduğunda  yazı verir 
+                    $("#p1").html("Stop");
+                    $("#div1").css("background-color", "blue");
+                },
+                drag: function  () { // sürükleme anında işlem yaptır  bu işlemi yaptırdığımda durunca bile renk kırmızıdan eski haline dönemez bunu sağlamak için  yukarıdaki stop içine tekrardan hangi renk olucağını belirtmemiz gerek 
+                    $("#div1").css("background-color", "red");
+                },
+                cursor:"move", // tıklandığında  mause 4 tarafı oklu şekilini alır 
+                cursorAt: {top: -5 , left: -5}, // nesneyi nerden tutarsak tutalım mause  belirlenen konumda gözükür misal burda sol üstte gösterdik
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
